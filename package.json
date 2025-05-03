@@ -1,22 +1,28 @@
 {
   "name": "bookshelf-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "A RESTful API for managing a bookshelf",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "start-dev": "nodemon src/server.js",
+    "lint": "eslint ."
   },
-  "keywords": [],
+  "keywords": [
+    "bookshelf",
+    "api",
+    "hapi"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@hapi/hapi": "^21.3.2",
-    "nanoid": "^3.3.6"
+    "nanoid": "3.3.6"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
+    "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.31.0",
-    "nodemon": "^3.1.10"
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^3.0.1"
   }
 }
