@@ -3,8 +3,8 @@ const routes = require('./routes');
 
 const init = async () => {
   const server = Hapi.server({
-    port: 9000,
-    host: 'localhost',
+    port: process.env.PORT || 9000,
+    host: '0.0.0.0',
     routes: {
       cors: {
         origin: ['*'],
@@ -16,6 +16,7 @@ const init = async () => {
 
   await server.start();
   console.log(`Server running on ${server.info.uri}`);
+  return server;
 };
 
 process.on('unhandledRejection', (err) => {
@@ -23,4 +24,10 @@ process.on('unhandledRejection', (err) => {
   process.exit(1);
 });
 
-init();
+// For local development
+if (require.main === module) {
+  init();
+}
+
+// For Vercel serverless deployment
+module.exports = init;
